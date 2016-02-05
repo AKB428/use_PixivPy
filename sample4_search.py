@@ -5,10 +5,25 @@ import json
 param = sys.argv
 
 #部分一致
+
+#複合検索の時はor ラブライブ or 艦これ
 json_result = pixiv.api.search_works(param[1], page=1, mode='tag')
+print(json_result.pagination.total)
+
+
+"""
+  "pagination": {
+    "total": 6207,
+    "pages": 207,
+    "next": 2,
+    "current": 1,
+    "per_page": 30,
+    "previous": null
+  }
+"""
 
 #json print
-print(json.dumps(json_result))
+#print(json.dumps(json_result))
 
 #illust = json_result.response[0]
 #print(">>> %s origin url: %s" % (illust.title, illust.image_urls['large']))
